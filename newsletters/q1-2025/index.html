@@ -23,6 +23,43 @@
   })
 </script>
 
+
+<script type="text/javascript">
+   // HTML5, baby! https://mathiasbynens.be/notes/document-head
+   document.head || (document.head = document.getElementsByTagName('head')[0]);
+
+   function changeFavicon(src) {
+    var link = document.createElement('link'),
+        oldLink = document.getElementById('dynamic-favicon');
+    link.id = 'dynamic-favicon';
+    link.rel = 'icon';
+    link.href = src;
+    if (oldLink) {
+     document.head.removeChild(oldLink);
+    }
+    document.head.appendChild(link);
+   }
+
+document.addEventListener('scroll', function(){
+
+  var percent = (window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100
+	
+	if (percent > 80) {
+	    changeFavicon('https://www.google.com/favicon.ico');
+
+	} else {
+    changeFavicon('https://www.tumblr.com/favicon.ico');
+}
+	
+});
+
+
+
+
+
+
+</script>
+
 <div class="textThing">
 <br><br><br><br>
 <img src="assets\images\newsletter\newsletter_logo.gif" alt="Deltarune.WM: Newsletter of the Discarded" width=100%>
